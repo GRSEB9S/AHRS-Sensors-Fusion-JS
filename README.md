@@ -1,6 +1,6 @@
 AHRS Sensor Fusion Library (JavaScript)
 ======
-This is an JavaScript compliment sensor fusion library for sensor arrays of gyroscopes, accelerometers, and magnetometers.  It was originally written in C++, specifically developed for use with embedded systems and has been optimised for execution speed.  The library includes modules for: attitude and heading reference system (AHRS) sensor fusion, gyroscope bias correction, and a tilt-compensated compass.
+This is an JavaScript compliment sensor fusion library for sensor arrays of gyroscopes, accelerometers, and magnetometers.  It was originally written in C++ and after ported to JavaScript, making it more accessible. It was also specifically developed for use with embedded systems and has been optimised for execution speed.  The library includes modules for: attitude and heading reference system (AHRS) sensor fusion, gyroscope bias correction, and a tilt-compensated compass.
 
 AHRS sensor fusion algorithm
 ----------------------------
@@ -25,6 +25,36 @@ Tilt-compensated compass
 
 The tilt-compensated compass calculates an angular heading relative to magnetic north using accelerometer and magnetometer measurements (NWU convention).
 
+Usage
+------------------------
+
+```
+// g,a,m are sensor measurements
+// NOTE: usally, raw gyroscope values need to be converted in radians/sec
+
+var fusionAhrs = clone(FusionAhrs);
+var gyro = clone(FusionVector3);
+gyro.axis.x = gx;
+gyro.axis.y = gy;
+gyro.axis.z = gz;
+
+var accelerometer = clone(FusionVector3);
+accelerometer.axis.x = ax;
+accelerometer.axis.y = ay;
+accelerometer.axis.z = az;
+
+var magnetometer = clone(FusionVector3);
+magnetometer.axis.x = ;
+magnetometer.axis.y = state.yOri;
+magnetometer.axis.z = state.zOri;
+
+var heading = FusionCompassCalculateHeading(accelerometer, magnetometer);
+FusionAhrsUpdate(fusionAhrs, gyroscope, accelerometer, magnetometer, 0.01f); // assumes 100 Hz sample rate
+FusionAhrsUpdate(fusionAhrs, gyroscope, accelerometer, FUSION_VECTOR3_ZERO, 0.01f); // alternative function call to ignore magnetometer
+FusionAhrsUpdate(fusionAhrs, gyroscope, FUSION_VECTOR3_ZERO, FUSION_VECTOR3_ZERO, 0.01f); // alternative function call to ignore accelerometer and magnetometer
+```
+
 References
 ------------------------
-You can find the original C++ Fusion library here: https://github.com/xioTechnologies/Fusion/
+You can find the original C++ Fusion library here: https://github.com/xioTechnologies/Fusion/.
+Follow the comments inside the .c/.h files to further details about the usage.
