@@ -25,4 +25,6 @@ Tilt-compensated compass
 
 The tilt-compensated compass calculates an angular heading relative to magnetic north using accelerometer and magnetometer measurements (NWU convention).
 
+References
+------------------------
 You can find the original C++ Fusion library here: https://github.com/xioTechnologies/Fusion/
