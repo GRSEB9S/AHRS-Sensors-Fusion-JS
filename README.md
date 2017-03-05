@@ -29,7 +29,7 @@ Usage
 ------------------------
 
 ```
-// g,a,m are sensor measurements
+// g,a,m are sensor measurements (three-axis each)
 // NOTE: usally, raw gyroscope values need to be converted in radians/sec
 
 var fusionAhrs = clone(FusionAhrs);
@@ -44,9 +44,9 @@ accelerometer.axis.y = ay;
 accelerometer.axis.z = az;
 
 var magnetometer = clone(FusionVector3);
-magnetometer.axis.x = ;
-magnetometer.axis.y = state.yOri;
-magnetometer.axis.z = state.zOri;
+magnetometer.axis.x = mx;
+magnetometer.axis.y = my;
+magnetometer.axis.z = mz;
 
 var heading = FusionCompassCalculateHeading(accelerometer, magnetometer);
 FusionAhrsUpdate(fusionAhrs, gyroscope, accelerometer, magnetometer, 0.01f); // assumes 100 Hz sample rate
