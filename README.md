@@ -57,4 +57,5 @@ FusionAhrsUpdate(fusionAhrs, gyroscope, FUSION_VECTOR3_ZERO, FUSION_VECTOR3_ZERO
 References
 ------------------------
 You can find the original C++ Fusion library here: https://github.com/xioTechnologies/Fusion/.
+
 Follow the comments inside the .c/.h files to further details about the usage.
