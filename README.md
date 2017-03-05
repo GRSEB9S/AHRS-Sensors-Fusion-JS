@@ -1,4 +1,3 @@
-# AHRS-Sensors-Fusion-JS
 AHRS Sensor Fusion Library (JavaScript)
 ======
 This is an JavaScript compliment sensor fusion library for sensor arrays of gyroscopes, accelerometers, and magnetometers.  It was originally written in C++, specifically developed for use with embedded systems and has been optimised for execution speed.  The library includes modules for: attitude and heading reference system (AHRS) sensor fusion, gyroscope bias correction, and a tilt-compensated compass.
